@@ -11,20 +11,20 @@ PRIMARY KEY(id)
 
 CREATE table user(
 
-id bigint,  <<int로 수정, autofield 쓰려면 얘가 primary key여야 됨
+id bigint,  /*int로 수정, autofield 쓰려면 얘가 primary key여야 됨 */
 email varchar(30),
 password varchar(50),
 name varchar(50),
-PRIMARY KEY(id) <<primary key 수정
+PRIMARY KEY(id) /* primary key 수정 */
 );
 
 CREATE table playlist(
 id int auto_increment,
-user_id bigint, <<bigint형으로 수정
+user_id bigint, /* bigint형으로 수정 */
 name varchar(50),
 tag varchar(50),
 PRIMARY KEY(id),
-FOREIGN KEY(user_id) references user(id) <<email 참조하면 오류나서 id로 수정
+FOREIGN KEY(user_id) references user(id) /* email 참조하면 오류나서 id로 수정 */
 );
 
 CREATE table songlist(
