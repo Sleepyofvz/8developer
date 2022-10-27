@@ -1,0 +1,53 @@
+CREATE table song(
+id varchar(50),
+title varchar(200),
+artist varchar(50),
+duration int,
+file varchar(500),
+title_album varchar(200),
+image_album varchar(500),
+PRIMARY KEY(id)	
+);
+
+CREATE table user(
+
+id bigint,  <<int로 수정, autofield 쓰려면 얘가 primary key여야 됨
+email varchar(30),
+password varchar(50),
+name varchar(50),
+PRIMARY KEY(id) <<primary key 수정
+);
+
+CREATE table playlist(
+id int auto_increment,
+user_id bigint, <<bigint형으로 수정
+name varchar(50),
+tag varchar(50),
+PRIMARY KEY(id),
+FOREIGN KEY(user_id) references user(id) <<email 참조하면 오류나서 id로 수정
+);
+
+CREATE table songlist(
+id int auto_increment,
+playlist_id int,
+song_id varchar(50),
+PRIMARY KEY(id),
+FOREIGN KEY(playlist_id) references playlist(id),
+FOREIGN KEY(song_id) references song(id)
+);
+
+CREATE table category(
+id varchar(50),
+keyword varchar(50),
+
+genre varchar(50),
+
+danceability float,
+
+energy float,
+
+valence float,
+
+tempo float,
+PRIMARY KEY (id)
+);
